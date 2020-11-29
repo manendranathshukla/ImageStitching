@@ -3,7 +3,7 @@ import os
 from flask import Flask, render_template, request, redirect, url_for, send_from_directory
 from werkzeug.utils import secure_filename
 from werkzeug.datastructures import  FileStorage
-
+from flask import send_file
 from imutils import paths
 import numpy as np
 import argparse
@@ -93,6 +93,14 @@ def display_image(filename):
 	#print('display_image filename: ' + filename)
 	return redirect(url_for('static', filename='output/' + filename), code=301)
 		
+		
+		
+@app.route('/download/')
+def return_files_tut():
+	try:
+		return send_file('static/output/shukla_output.png',attachment_filename='shukla_output.png')
+	except Exception as e:
+		return str(e)
 
 
 if __name__ == "__main__":
