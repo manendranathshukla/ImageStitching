@@ -104,6 +104,9 @@
 {% if filename %}
 	<div>
 		<img src="{{ url_for('static', filename=filename) }}">
+		<div class="container" align="left">
+		<a href="/download/" target="blank"><button class='btn btn-default'>Download!</button></a>
+   </div>
 		
 	</div>
 {% endif %}
